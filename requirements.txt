@@ -1,0 +1,4 @@
+pydantic~=2.10.5
+psutil~=6.1.1
+PyQt5~=5.15.11
+SQLAlchemy~=2.0.37
