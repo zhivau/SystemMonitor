@@ -3,14 +3,14 @@ name: Run Tests
 on:
   push:
     branches:
-      - main   # или другая ветка, в зависимости от того, как вы пушите изменения
+      - main
   pull_request:
     branches:
-      - main   # запустит тесты на pull request в main
+      - main
 
 jobs:
   tests:
-    runs-on: ubuntu-latest  # можно использовать другой образ, если хотите
+    runs-on: ubuntu-latest
 
     services:
       postgres:
@@ -57,7 +57,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest --cov=gui --cov=db --cov-report=html tests
+          pytest -v --cov=gui --cov=db --cov-report=html tests
 
       - name: Upload coverage report
         if: success()
