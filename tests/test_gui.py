@@ -70,14 +70,14 @@ def test_update_record_time(qtbot, data_service):
     assert QTime(0, 0, 1) == window.record_time
 
 
-# def test_open_history_window(qtbot, data_service):
-#     window = MainWindow(data_service)
-#     qtbot.addWidget(window)
-#
-#     QTest.mouseClick(window.history_button, Qt.LeftButton)
-#
-#     assert window.history_window.isVisible()
-#
-#     window.history_window.close()
-#
-#     assert not window.history_window.isVisible()
+def test_open_history_window(qtbot, data_service):
+    window = MainWindow(data_service)
+    qtbot.addWidget(window)
+
+    QTest.mouseClick(window.history_button, Qt.LeftButton)
+
+    assert window.history_window.isVisible()
+
+    window.history_window.close()
+
+    assert not window.history_window.isVisible()
