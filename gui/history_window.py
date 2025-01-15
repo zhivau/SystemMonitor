@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QTableWidget, QTableWidgetItem
-from PyQt5.QtCore import QDateTime, Qt
+from PyQt5.QtCore import Qt
 
 
 class HistoryWindow(QDialog):

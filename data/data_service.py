@@ -1,4 +1,4 @@
-from .model import Usage
+from data.model import Usage
 
 
 class DataService:

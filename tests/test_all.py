@@ -1,12 +1,10 @@
 import pytest
 from PyQt5.QtTest import QTest
 from PyQt5.QtCore import Qt, QTime
-from gui.main_window import MainWindow
-from gui.history_window import HistoryWindow
+from gui import MainWindow, HistoryWindow
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from data.data_service import DataService
-from data.model import Base
+from data import DataService, Base
 
 
 DATABASE_URL = "postgresql://test_user:test_password@localhost/test_db"

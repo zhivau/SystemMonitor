@@ -1,7 +1,6 @@
 from PyQt5.QtCore import QTimer, QTime
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QLabel, QSpinBox
-# from gui.recorder import Recorder
-from gui.history_window import HistoryWindow
+from gui import HistoryWindow
 import psutil
 
 
@@ -14,8 +13,6 @@ class MainWindow(QWidget):
         self.setWindowTitle('CPU, RAM, Disk Usage Monitor')
         self.setGeometry(100, 100, 400, 300)
         self.setFixedSize(400, 300)
-
-        # self.recorder = Recorder(self, self.data_service)
 
         self.layout = QVBoxLayout(self)
         self.cpu_label = QLabel('CPU: 0%', self)
@@ -34,13 +31,10 @@ class MainWindow(QWidget):
         self.refresh_time_input.setValue(1)
         self.layout.addWidget(self.refresh_time_input)
 
-
         self.start_button = QPushButton('Start Recording', self)
-        # self.start_button.clicked.connect(self.recorder.start_recording)
         self.start_button.clicked.connect(self.start_recording_ui)
 
         self.stop_button = QPushButton('Stop Recording', self)
-        # self.stop_button.clicked.connect(self.recorder.stop_recording)
         self.stop_button.clicked.connect(self.stop_recording_ui)
         self.stop_button.setEnabled(False)
 

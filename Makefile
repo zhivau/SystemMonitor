@@ -2,5 +2,4 @@ all:
 	python main.py
 
 tests:
-	rm -rf htmlcov
-	pytest --cov=gui --cov=data tests
+	pytest --cov=gui --cov=data --cov-report=html --cov-report=term tests
