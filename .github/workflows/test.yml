@@ -39,14 +39,14 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgl1 mesa-utils xvfb
+          sudo apt-get install -y xvfb x11-utils libxkbcommon-x11-0
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Start Xvfb
-        run: |
-          export DISPLAY=:99
-          Xvfb :99 &
+#      - name: Start Xvfb
+#        run: |
+#          export DISPLAY=:99
+#          Xvfb :99 &
 
       - name: Wait for PostgreSQL to be ready
         run: |
