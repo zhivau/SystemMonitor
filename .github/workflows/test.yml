@@ -57,7 +57,8 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -v --cov=gui --cov=db --cov-report=html tests
+           xvfb-run --auto-servernum `which coverage` run -m pytest --cov=gui --cov=db --cov-report=html tests
+#          pytest --cov=gui --cov=db --cov-report=html tests
 
       - name: Upload coverage report
         if: success()
