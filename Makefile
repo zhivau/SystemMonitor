@@ -3,4 +3,4 @@ all:
 
 tests:
 	rm -rf htmlcov
-	pytest --cov=gui --cov=db --cov-report=html tests
+	pytest --cov=gui --cov=data tests

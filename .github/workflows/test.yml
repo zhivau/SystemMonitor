@@ -52,7 +52,7 @@ jobs:
 
       - name: Run tests
         run: |
-           xvfb-run pytest --cov=gui --cov=db --cov-report=html tests
+           xvfb-run pytest --cov=gui --cov=data --cov-report=html --cov-report=term tests
 
       - name: Upload coverage report
         if: success()
