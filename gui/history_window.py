@@ -5,7 +5,7 @@ from PyQt5.QtCore import Qt
 class HistoryWindow(QDialog):
     def __init__(self, data_service):
         super().__init__()
-        self.setWindowTitle('History of CPU, RAM, Disk Usage')
+        self.setWindowTitle("History of CPU, RAM, Disk Usage")
         self.setFixedSize(1000, 550)
 
         self.layout = QVBoxLayout(self)
@@ -15,7 +15,7 @@ class HistoryWindow(QDialog):
         self.data_service = data_service
 
         self.table.setColumnCount(5)
-        self.table.setHorizontalHeaderLabels(['ID', 'CPU', 'RAM', 'Disk', 'Created At'])
+        self.table.setHorizontalHeaderLabels(["ID", "CPU", "RAM", "Disk", "Created At"])
         self.refresh_history()
         self.table.setColumnWidth(4, 300)
 
@@ -32,5 +32,5 @@ class HistoryWindow(QDialog):
 
     def _set_readonly_item(self, row, column, text):
         item = QTableWidgetItem(text)
-        item.setFlags(item.flags() & ~Qt.ItemIsEditable)  # Убираем возможность редактирования
+        item.setFlags(item.flags() & ~Qt.ItemIsEditable)
         self.table.setItem(row, column, item)

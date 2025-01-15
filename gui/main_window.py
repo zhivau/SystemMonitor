@@ -10,14 +10,14 @@ class MainWindow(QWidget):
 
         self.data_service = data_service
 
-        self.setWindowTitle('CPU, RAM, Disk Usage Monitor')
+        self.setWindowTitle("CPU, RAM, Disk Usage Monitor")
         self.setGeometry(100, 100, 400, 300)
         self.setFixedSize(400, 300)
 
         self.layout = QVBoxLayout(self)
-        self.cpu_label = QLabel('CPU: 0%', self)
-        self.ram_label = QLabel('RAM: 0%', self)
-        self.disk_label = QLabel('Disk: 0%', self)
+        self.cpu_label = QLabel("CPU: 0%", self)
+        self.ram_label = QLabel("RAM: 0%", self)
+        self.disk_label = QLabel("Disk: 0%", self)
 
         self.layout.addWidget(self.cpu_label)
         self.layout.addWidget(self.ram_label)
@@ -31,17 +31,17 @@ class MainWindow(QWidget):
         self.refresh_time_input.setValue(1)
         self.layout.addWidget(self.refresh_time_input)
 
-        self.start_button = QPushButton('Start Recording', self)
+        self.start_button = QPushButton("Start Recording", self)
         self.start_button.clicked.connect(self.start_recording_ui)
 
-        self.stop_button = QPushButton('Stop Recording', self)
+        self.stop_button = QPushButton("Stop Recording", self)
         self.stop_button.clicked.connect(self.stop_recording_ui)
         self.stop_button.setEnabled(False)
 
         self.layout.addWidget(self.start_button)
         self.layout.addWidget(self.stop_button)
 
-        self.history_button = QPushButton('View History', self)
+        self.history_button = QPushButton("View History", self)
         self.history_button.clicked.connect(self.open_history_window)
         self.layout.addWidget(self.history_button)
 
@@ -52,7 +52,7 @@ class MainWindow(QWidget):
         self.gui_timer.timeout.connect(self.update_time)
         self.gui_time = QTime(0, 0)
 
-        self.gui_time_label = QLabel('Recording Time: 00:00', self)
+        self.gui_time_label = QLabel("Recording Time: 00:00", self)
         self.gui_time_label.setVisible(False)
         self.layout.addWidget(self.gui_time_label)
 
@@ -67,14 +67,14 @@ class MainWindow(QWidget):
     def get_usage(self):
         cpu = psutil.cpu_percent()
         ram = psutil.virtual_memory().percent
-        disk = psutil.disk_usage('/').percent
+        disk = psutil.disk_usage("/").percent
         return cpu, ram, disk
 
     def update_usage(self):
         cpu, ram, disk = self.get_usage()
-        self.cpu_label.setText(f'CPU: {cpu}%')
-        self.ram_label.setText(f'RAM: {ram}%')
-        self.disk_label.setText(f'Disk: {disk}%')
+        self.cpu_label.setText(f"CPU: {cpu}%")
+        self.ram_label.setText(f"RAM: {ram}%")
+        self.disk_label.setText(f"Disk: {disk}%")
 
         self.interval = self.refresh_time_input.value()
         self.update_timer.setInterval(self.interval * 1000)
@@ -102,7 +102,7 @@ class MainWindow(QWidget):
 
         self.start_button.setVisible(True)
 
-        self.gui_time_label.setText('Recording Time: 00:00')
+        self.gui_time_label.setText("Recording Time: 00:00")
 
     def insert_usage(self):
         cpu, ram, disk = self.get_usage()
@@ -110,7 +110,9 @@ class MainWindow(QWidget):
 
     def update_time(self):
         self.gui_time = self.gui_time.addSecs(1)
-        self.gui_time_label.setText(f'Recording Time: {self.gui_time.toString("mm:ss")}')
+        self.gui_time_label.setText(
+            f'Recording Time: {self.gui_time.toString("mm:ss")}'
+        )
 
     def open_history_window(self):
         self.history_window.refresh_history()

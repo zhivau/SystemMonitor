@@ -35,9 +35,9 @@ def test_refresh_history(qtbot, data_service):
     data_service.insert_usage(50.0, 30.0, 40.0)
     window.refresh_history()
     last_row_index = window.table.rowCount() - 1
-    assert window.table.item(last_row_index, 1).text() == '50.0'
-    assert window.table.item(last_row_index, 2).text() == '30.0'
-    assert window.table.item(last_row_index, 3).text() == '40.0'
+    assert window.table.item(last_row_index, 1).text() == "50.0"
+    assert window.table.item(last_row_index, 2).text() == "30.0"
+    assert window.table.item(last_row_index, 3).text() == "40.0"
 
 
 def test_start_stop_recording(qtbot, data_service):
@@ -80,7 +80,19 @@ def test_insert_usage(qtbot, data_service):
     window.insert_usage()
     window.history_window.refresh_history()
     last_row_index = window.history_window.table.rowCount() - 1
-    assert 0.0 <= float(window.history_window.table.item(last_row_index, 1).text()) <= 100.0
-    assert 0.0 <= float(window.history_window.table.item(last_row_index, 2).text()) <= 100.0
-    assert 0.0 <= float(window.history_window.table.item(last_row_index, 3).text()) <= 100.0
+    assert (
+        0.0
+        <= float(window.history_window.table.item(last_row_index, 1).text())
+        <= 100.0
+    )
+    assert (
+        0.0
+        <= float(window.history_window.table.item(last_row_index, 2).text())
+        <= 100.0
+    )
+    assert (
+        0.0
+        <= float(window.history_window.table.item(last_row_index, 3).text())
+        <= 100.0
+    )
     window.close()
