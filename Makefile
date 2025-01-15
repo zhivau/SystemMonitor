@@ -1,3 +1,5 @@
+.PHONY: tests
+
 all:
 	python main.py
 
