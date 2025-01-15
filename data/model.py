@@ -12,3 +12,4 @@ class Usage(Base):
     cpu = Column(Float)
     ram = Column(Float)
     disk = Column(Float)
+    

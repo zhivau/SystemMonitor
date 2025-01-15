@@ -5,8 +5,8 @@ from gui.main_window import MainWindow
 from gui.history_window import HistoryWindow
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from db.data_service import DataService
-from db.model import Base
+from data.data_service import DataService
+from data.model import Base
 
 
 DATABASE_URL = "postgresql://test_user:test_password@localhost/test_db"

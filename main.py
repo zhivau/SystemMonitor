@@ -4,8 +4,8 @@ from gui.main_window import MainWindow
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from config import DATABASE_URL
-from db.model import Base
-from db.data_service import DataService
+from data.model import Base
+from data.data_service import DataService
 
 
 def main():
