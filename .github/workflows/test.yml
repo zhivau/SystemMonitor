@@ -1,4 +1,4 @@
-name: Run PyQt5 Tests
+name: Run Tests
 
 on:
   push:
@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb libgl1-mesa-glx
+          sudo apt-get install -y libgl1 mesa-utils xvfb
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
