@@ -1,10 +1,10 @@
 import sys
 from PyQt5.QtWidgets import QApplication
 from gui.main_window import MainWindow
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, desc
 from sqlalchemy.orm import sessionmaker
 from config import DATABASE_URL
-from data.model import Base
+from data.model import Base, Usage
 from data.data_service import DataService
 
 
