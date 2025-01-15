@@ -43,41 +43,41 @@ def test_refresh_history(qtbot, data_service):
     assert window.table.item(last_row_index, 3).text() == '40.0'
 
 
-# def test_start_stop_recording(qtbot, data_service):
-#     window = MainWindow(data_service)
-#     qtbot.addWidget(window)
-#
-#     window.update_usage()
-#
-#     assert window.start_button.isEnabled()
-#     assert not window.stop_button.isEnabled()
-#
-#     QTest.mouseClick(window.start_button, Qt.LeftButton)
-#     assert not window.start_button.isEnabled()
-#     assert window.stop_button.isEnabled()
-#
-#     QTest.mouseClick(window.stop_button, Qt.LeftButton)
-#     assert window.start_button.isEnabled()
-#     assert not window.stop_button.isEnabled()
-#
-#
-# def test_update_record_time(qtbot, data_service):
-#     window = MainWindow(data_service)
-#     qtbot.addWidget(window)
-#
-#     window.update_record_time()
-#
-#     assert QTime(0, 0, 1) == window.record_time
-#
-#
-# def test_open_history_window(qtbot, data_service):
-#     window = MainWindow(data_service)
-#     qtbot.addWidget(window)
-#
-#     QTest.mouseClick(window.history_button, Qt.LeftButton)
-#
-#     assert window.history_window.isVisible()
-#
-#     window.history_window.close()
-#
-#     assert not window.history_window.isVisible()
+def test_start_stop_recording(qtbot, data_service):
+    window = MainWindow(data_service)
+    qtbot.addWidget(window)
+
+    window.update_usage()
+
+    assert window.start_button.isEnabled()
+    assert not window.stop_button.isEnabled()
+
+    QTest.mouseClick(window.start_button, Qt.LeftButton)
+    assert not window.start_button.isEnabled()
+    assert window.stop_button.isEnabled()
+
+    QTest.mouseClick(window.stop_button, Qt.LeftButton)
+    assert window.start_button.isEnabled()
+    assert not window.stop_button.isEnabled()
+
+
+def test_update_record_time(qtbot, data_service):
+    window = MainWindow(data_service)
+    qtbot.addWidget(window)
+
+    window.update_record_time()
+
+    assert QTime(0, 0, 1) == window.record_time
+
+
+def test_open_history_window(qtbot, data_service):
+    window = MainWindow(data_service)
+    qtbot.addWidget(window)
+
+    QTest.mouseClick(window.history_button, Qt.LeftButton)
+
+    assert window.history_window.isVisible()
+
+    window.history_window.close()
+
+    assert not window.history_window.isVisible()
