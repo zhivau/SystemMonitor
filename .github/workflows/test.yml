@@ -43,11 +43,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-#      - name: Start Xvfb
-#        run: |
-#          export DISPLAY=:99
-#          Xvfb :99 &
-
       - name: Wait for PostgreSQL to be ready
         run: |
           until pg_isready -h localhost -p 5432 -U test_user; do
@@ -57,8 +52,7 @@ jobs:
 
       - name: Run tests
         run: |
-           xvfb-run --auto-servernum `which coverage` run -m pytest --cov=gui --cov=db --cov-report=html tests
-#          pytest --cov=gui --cov=db --cov-report=html tests
+           xvfb-run `which coverage` run -m pytest --cov=gui --cov=db --cov-report=html tests
 
       - name: Upload coverage report
         if: success()
